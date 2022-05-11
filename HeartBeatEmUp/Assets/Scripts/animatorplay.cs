@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class animatorplay : MonoBehaviour
 {
-
+    private int hits;
     public int maxHealth = 100;
     public int currentHealth;
     public KeyCode Left,Right,JumpButton,AttackKey;
@@ -51,6 +51,7 @@ public class animatorplay : MonoBehaviour
             Swish();
 
         }
+        Debug.Log(hits);
         
         
     }
@@ -96,4 +97,6 @@ public class animatorplay : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
+
 }
+
