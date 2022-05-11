@@ -16,7 +16,7 @@ filters = {
 	settings = true
 }
 scopes = {
-	"last_search.AB59B443" = "2D"
+	"last_search.AB59B443" = "gizmo"
 }
 providers = {
 	asset = {

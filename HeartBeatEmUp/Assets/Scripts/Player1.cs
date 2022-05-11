@@ -10,12 +10,13 @@ public class Player1 : MonoBehaviour
     public KeyCode Left,Right,JumpButton,AttackKey;
     public Transform AttackPoint;
     public float attackRange = 0.5f;
-    public LayerMask enemyLayers;
+    public LayerMask enemyLayers2;
     private bool WalKing;
     public float moveSpeed;
     public float JumpForce;
     private Animator anim;
     public HealthBar healthBar;
+    public Player2 player2;
     // Start is called before the first frame update
     void Start()
     {
@@ -70,10 +71,10 @@ public class Player1 : MonoBehaviour
     void Swish()
     {
         anim.SetTrigger("Attack");
-        Collider[] hitEnemies = Physics.OverlapSphere(AttackPoint.position, attackRange, enemyLayers);
+        Collider[] hitEnemies = Physics.OverlapSphere(AttackPoint.position, attackRange, enemyLayers2);
         foreach (Collider enemy in hitEnemies)
         {
-            TakeDamage(10);
+            player2.TakeDamage(10);
         }
     }
 
@@ -92,11 +93,16 @@ public class Player1 : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
 
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(AttackPoint.position, attackRange);
+    }
 }
 

@@ -16,6 +16,7 @@ public class Player2 : MonoBehaviour
     public float JumpForce;
     private Animator anim;
     public HealthBar healthBar;
+    public Player1 player1;
     // Start is called before the first frame update
     void Start()
     {
@@ -73,7 +74,7 @@ public class Player2 : MonoBehaviour
         Collider[] hitEnemies = Physics.OverlapSphere(AttackPoint.position, attackRange, enemyLayers);
         foreach (Collider enemy in hitEnemies)
         {
-            TakeDamage(10);
+            player1.TakeDamage(10);
         }
     }
 
@@ -92,10 +93,15 @@ public class Player2 : MonoBehaviour
         }
     }
 
-    void TakeDamage(int damage)
+   public void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
+    }
+        void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(AttackPoint.position, attackRange);
     }
 
 }
