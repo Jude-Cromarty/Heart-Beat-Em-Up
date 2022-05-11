@@ -15,4 +15,6 @@ We need sound effects so if you find any add them, sort of depends on character 
 To sync this, make a clone via Github desktop (need url) and work from the cloned location.
 Remember to pull then commit when you make changes. 
 
+The project is the folder inside the repo folder.
+
 -Jude
