@@ -21,25 +21,25 @@ public class animatorplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
+         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0.0f); //, Input.GetAxis("Vertical"));
         
         transform.position += movement * Time.deltaTime * moveSpeed;
         
-        if (Input.GetKeyDown("JumpButton"))
+        if (Input.GetKeyDown(JumpButton))
         {
-            
+    
                 Jump();  
         }
-        if(Input.GetKeyDown("Left")||Input.GetKeyDown("Right"))
+        if(Input.GetKeyDown(Left)||Input.GetKeyDown(Right))
         {    
                 WalKing = true;
                StartCoroutine(Walking());
         }
-        if(Input.GetKeyUp("Left")||Input.GetKeyUp("Right"))
+        if(Input.GetKeyUp(Left)||Input.GetKeyUp(Right))
         {
             WalKing = false;
         }
-        if(Input.GetKeyDown("AttackKey"))
+        if(Input.GetKeyDown(AttackKey))
         {
             Swish();
 
