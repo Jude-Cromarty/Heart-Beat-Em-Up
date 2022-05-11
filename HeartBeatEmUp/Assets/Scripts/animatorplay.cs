@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class animatorplay : MonoBehaviour
 {
+
+    public int maxHealth = 100;
+    public int currentHealth;
     public KeyCode Left,Right,JumpButton,AttackKey;
     public Transform AttackPoint;
     public float attackRange = 0.5f;
@@ -12,16 +15,20 @@ public class animatorplay : MonoBehaviour
     public float moveSpeed;
     public float JumpForce;
     private Animator anim;
+    public HealthBar healthBar;
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        currentHealth = maxHealth;
+        healthBar.SetMaxHealth(maxHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
-         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0.0f); //, Input.GetAxis("Vertical"));
+        
+         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0.0f, Input.GetAxis("Vertical"));
         
         transform.position += movement * Time.deltaTime * moveSpeed;
         
@@ -65,7 +72,7 @@ public class animatorplay : MonoBehaviour
         Collider[] hitEnemies = Physics.OverlapSphere(AttackPoint.position, attackRange, enemyLayers);
         foreach (Collider enemy in hitEnemies)
         {
-            Debug.Log("We hit" + enemy.name);
+            TakeDamage(10);
         }
     }
 
@@ -82,5 +89,11 @@ public class animatorplay : MonoBehaviour
             anim.Play("Duckwalk");
             yield return null;
         }
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.SetHealth(currentHealth);
     }
 }
