@@ -63,12 +63,12 @@ public class Player1 : MonoBehaviour
 
     void Walk()
     {
-        anim.Play("Duckwalk");
+        anim.Play("WalkSlug1");
     }
 
     void Jump()
     {
-        anim.Play("Jump");
+        anim.Play("JumpSlug1");
         gameObject.GetComponent<Rigidbody>().AddForce(new Vector2(0f, JumpForce), ForceMode.Impulse);
     }
 
@@ -84,7 +84,7 @@ public class Player1 : MonoBehaviour
 
     void Idle()
     {
-        anim.Play("IdleDucks");
+        anim.Play("IdleSlug1");
     }
 
     IEnumerator Walking()
@@ -92,13 +92,14 @@ public class Player1 : MonoBehaviour
 
         while(WalKing == true)
         {
-            anim.Play("Duckwalk");
+            anim.Play("WalkSlug1");
             yield return null;
         }
     }
 
     public void TakeDamage(int damage)
     {
+        anim.Play("KnockbackSlug1");
         GetComponent<Rigidbody>().AddRelativeForce(-Vector3.right * knockback);
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);

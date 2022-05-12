@@ -336,11 +336,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 325714423}
-  - component: {fileID: 325714422}
   - component: {fileID: 325714421}
   - component: {fileID: 325714424}
   - component: {fileID: 325714420}
   - component: {fileID: 325714425}
+  - component: {fileID: 325714422}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -404,7 +404,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5a466abb90a33d94984afb465a93e44c, type: 3}
+  m_Sprite: {fileID: 3740240962678045197, guid: 8bcb46801f18cf544b0d96cffc4792e6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -425,7 +425,7 @@ Animator:
   m_GameObject: {fileID: 325714419}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 1a11ecbf24407cd4baa1e4d28b3f0c10, type: 2}
+  m_Controller: {fileID: 9100000, guid: 325aca35933e00b4cbb8018d2a2a7ac5, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -442,8 +442,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325714419}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.02, y: -4.72, z: -0.29}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -5.7902, y: -4.4832, z: -0.29}
+  m_LocalScale: {x: 2.3928, y: 2.3928, z: 2.3928}
   m_Children:
   - {fileID: 34535464}
   m_Father: {fileID: 0}
@@ -460,8 +460,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.74, y: 1.05, z: 0.2}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.39541572, y: 0.36151004, z: 0.07775243}
+  m_Center: {x: -0.012493858, y: 0.034153897, z: -0.06112376}
 --- !u!114 &325714425
 MonoBehaviour:
   m_ObjectHideFlags: 0
