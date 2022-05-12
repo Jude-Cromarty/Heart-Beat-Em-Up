@@ -2,7 +2,7 @@
 
 Currently still in development.
 
-Controls: WASD for player 1,  IJKL for player 2.
+Controls: WASDE for player 1,  IJKLO for player 2.
 
 Theres scripts for stuff like health bars & timers I'll add when I add those components, but at the moment its mostly just a mix of stuff that needs assembling (Making the scripts so this should be super easy).
 
