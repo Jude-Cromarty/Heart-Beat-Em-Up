@@ -13,7 +13,7 @@ public class Player1 : MonoBehaviour
     public LayerMask enemyLayers2;
     private bool WalKing;
     public float moveSpeed;
-    public float JumpForce;
+    public float JumpForce,knockback;
     private Animator anim;
     public HealthBar healthBar;
     public Player2 player2;
@@ -26,6 +26,8 @@ public class Player1 : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
 
     }
+
+    //if spacebar is pressed swap controls,invert controls etc..(depends on MUSIC - makes it viable for jam)
 
     // Update is called once per frame
     void Update()
@@ -97,6 +99,7 @@ public class Player1 : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        GetComponent<Rigidbody>().AddRelativeForce(-Vector3.right * knockback);
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }

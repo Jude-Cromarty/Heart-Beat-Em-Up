@@ -28,7 +28,10 @@ public class Player2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(currentHealth <= 0)
+        {
+            Dead();
+        }
          Vector3 movement2 = new Vector3(Input.GetAxis("Horizontal2"), 0.0f);//, Input.GetAxis("Vertical"));
         
         transform.position += movement2 * Time.deltaTime * moveSpeed;
@@ -59,12 +62,12 @@ public class Player2 : MonoBehaviour
 
     void Walk()
     {
-        anim.Play("Duckwalk");
+        anim.Play("Snow_Move");
     }
 
     void Jump()
     {
-        anim.Play("Jump");
+        anim.Play("Snow_Jump");
         gameObject.GetComponent<Rigidbody>().AddForce(new Vector2(0f, JumpForce), ForceMode.Impulse);
     }
 
@@ -80,7 +83,12 @@ public class Player2 : MonoBehaviour
 
     void Idle()
     {
-        anim.Play("IdleDucks");
+        anim.Play("Snow_Idle");
+    }
+
+    void Dead()
+    {
+        anim.Play("Snow_Dead");
     }
 
     IEnumerator Walking()
@@ -88,7 +96,7 @@ public class Player2 : MonoBehaviour
 
         while(WalKing == true)
         {
-            anim.Play("Duckwalk");
+            anim.Play("Snow_Move");
             yield return null;
         }
     }
