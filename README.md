@@ -8,9 +8,7 @@ Theres scripts for stuff like health bars & timers I'll add when I add those com
 
 The art is not final and if you feel like there should be a feature either tell me or feel free to add it yourself. 
 
-Animations are needed mostly, currently I've just taken a gif, ran it through photoshop to split it apart and used parts of that.
-
-We don't "Need" original characters/animations but they are prefrable
+Because of time reasons, it's best if we reskin sprite sheets. https://www.spriters-resource.com/mobile/metalslugattack/ is a good place for this. They need walking, idle, attack and dead.
 
 We need sound effects so if you find any add them, sort of depends on character first though.
 
