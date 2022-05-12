@@ -18,11 +18,13 @@ public class Player1 : MonoBehaviour
     public HealthBar healthBar;
     public Player2 player2;
     // Start is called before the first frame update
+
     void Start()
     {
         anim = GetComponent<Animator>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
+
     }
 
     // Update is called once per frame
@@ -104,5 +106,8 @@ public class Player1 : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(AttackPoint.position, attackRange);
     }
+
+    
+    
 }
 
