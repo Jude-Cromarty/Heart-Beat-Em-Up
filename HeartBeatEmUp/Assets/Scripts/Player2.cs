@@ -9,7 +9,7 @@ public class Player2 : MonoBehaviour
     private int hits;
     public int maxHealth = 100;
     public int currentHealth;
-    public KeyCode Left,Right,JumpButton,AttackKey;
+    public KeyCode Left,Right,JumpButton,AttackKey,SpecialKey;
     public Transform AttackPoint;
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
@@ -59,7 +59,10 @@ public class Player2 : MonoBehaviour
         }
         Debug.Log(hits);
         
-        
+          if(Input.GetKeyDown(SpecialKey))
+        {
+            Special();
+        }
     }
 
     void Walk()
@@ -108,6 +111,7 @@ public class Player2 : MonoBehaviour
 
    public void TakeDamage(int damage)
     {
+        anim.Play("Snow_Stunned");
         GetComponent<Rigidbody>().AddRelativeForce(-Vector3.right * knockback);
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
@@ -118,4 +122,8 @@ public class Player2 : MonoBehaviour
         Gizmos.DrawWireSphere(AttackPoint.position, attackRange);
     }
 
+        public void Special()
+    {
+        anim.Play("SpecialSlug2");
+    }
 }

@@ -442,10 +442,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 325714419}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.7902, y: -4.96, z: -0.29}
+  m_LocalPosition: {x: -5.7902, y: -5.14, z: -0.29}
   m_LocalScale: {x: 2.3928, y: 2.3928, z: 2.3928}
   m_Children:
   - {fileID: 34535464}
+  - {fileID: 957587429}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -476,6 +477,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scaleChange: {x: 0, y: 0, z: 0}
   positionChange: {x: 0, y: 0, z: 0}
+  positionChange1: {x: 0, y: 2, z: 0}
   Player: {fileID: 325714419}
   maxHealth: 100
   currentHealth: 0
@@ -483,12 +485,15 @@ MonoBehaviour:
   Right: 100
   JumpButton: 119
   AttackKey: 101
+  SpecialKey: 113
   AttackPoint: {fileID: 34535464}
+  AttackPoint1: {fileID: 957587429}
   attackRange: 0.14
+  attackRange1: 3
   enemyLayers2:
     serializedVersion: 2
     m_Bits: 64
-  moveSpeed: 1
+  moveSpeed: 3
   RotateX: 0
   RotateY: 0
   RotateZ: 0
@@ -1157,6 +1162,36 @@ Transform:
   m_Father: {fileID: 1527827955}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1 &957587428
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 957587429}
+  m_Layer: 3
+  m_Name: AttackPoint (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &957587429
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 957587428}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.066, y: -0.097, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 325714423}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &977000656
 GameObject:
   m_ObjectHideFlags: 0
@@ -1455,17 +1490,18 @@ MonoBehaviour:
   Right: 108
   JumpButton: 105
   AttackKey: 111
+  SpecialKey: 0
   AttackPoint: {fileID: 565582605}
   attackRange: 0.14
   enemyLayers:
     serializedVersion: 2
     m_Bits: 8
-  moveSpeed: 1
+  moveSpeed: 3
   RotateX: 0
   RotateY: 0
   RotateZ: 0
   JumpForce: 5
-  knockback: 0
+  knockback: -500
   healthBar: {fileID: 1573800209}
   player1: {fileID: 325714425}
 --- !u!54 &1428467860
@@ -1495,8 +1531,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.28287897, y: 0.3652433, z: 0.17037307}
-  m_Center: {x: -0.0030211536, y: -0.080144405, z: -0.014813421}
+  m_Size: {x: 0.28287897, y: 0.3652433, z: 0.09710289}
+  m_Center: {x: -0.0030211536, y: -0.080144405, z: 0.021821672}
 --- !u!212 &1428467862
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1575,7 +1611,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1428467858}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 6.72, y: -5.035, z: -0.32}
+  m_LocalPosition: {x: 6.72, y: -5.035, z: -0.332}
   m_LocalScale: {x: 2.222, y: 2.222, z: 2.222}
   m_Children:
   - {fileID: 565582605}

@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Player1 : MonoBehaviour
-{
-    public Vector3 scaleChange,positionChange;
+{   
+     Rigidbody m_Rigidbody;
+    public Vector3 scaleChange,positionChange,positionChange1;
     public GameObject Player;
     private int hits;
     public int maxHealth = 100;
     public int currentHealth;
-    public KeyCode Left,Right,JumpButton,AttackKey;
-    public Transform AttackPoint;
+    public KeyCode Left,Right,JumpButton,AttackKey,SpecialKey;
+    public Transform AttackPoint,AttackPoint1;
     public float attackRange = 0.5f;
+    public float attackRange1 = 0.5f;
     public LayerMask enemyLayers2;
     private bool WalKing;
     public float moveSpeed, RotateX, RotateY, RotateZ;
@@ -23,6 +25,7 @@ public class Player1 : MonoBehaviour
 
     void Start()
     {
+        m_Rigidbody = GetComponent<Rigidbody>();
         anim = GetComponent<Animator>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
@@ -60,6 +63,10 @@ public class Player1 : MonoBehaviour
         {
             Swish();
 
+        }
+        if(Input.GetKeyDown(SpecialKey))
+        {
+            StartCoroutine(Special());
         }
         Debug.Log(hits);
         
@@ -116,11 +123,25 @@ public class Player1 : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireSphere(AttackPoint.position, attackRange);
+          Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(AttackPoint1.position, attackRange1);
     }
 
     void Dead()
     {
         anim.Play("DeadSlug1");
+    }
+
+    IEnumerator Special()
+    {
+        Player.transform.position += positionChange1;
+        m_Rigidbody.constraints = RigidbodyConstraints.FreezePosition;
+        anim.Play("SpecialSlug1");
+        yield return new WaitForSeconds(1.2f);
+        m_Rigidbody.constraints = RigidbodyConstraints.None;
+        Collider[] hitEnemies = Physics.OverlapSphere(AttackPoint1.position, attackRange1, enemyLayers2);
+        foreach (Collider enemy in hitEnemies)
+        {player2.TakeDamage(30);}
     }
 
     
