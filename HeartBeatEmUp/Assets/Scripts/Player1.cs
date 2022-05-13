@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player1 : MonoBehaviour
 {
+    public Vector3 scaleChange,positionChange;
+    public GameObject Player;
     private int hits;
     public int maxHealth = 100;
     public int currentHealth;
@@ -12,7 +14,7 @@ public class Player1 : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayers2;
     private bool WalKing;
-    public float moveSpeed;
+    public float moveSpeed, RotateX, RotateY, RotateZ;
     public float JumpForce,knockback;
     private Animator anim;
     public HealthBar healthBar;
@@ -32,7 +34,10 @@ public class Player1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(currentHealth <= 0)
+        {
+            Dead();
+        }
          Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0.0f);//, Input.GetAxis("Vertical"));
         
             transform.position += movement * Time.deltaTime * moveSpeed;
@@ -89,7 +94,9 @@ public class Player1 : MonoBehaviour
 
     IEnumerator Walking()
     {
-
+        Player.transform.localScale += scaleChange;
+        Player.transform.position += positionChange;
+        transform.localRotation = Quaternion.Euler(RotateX, RotateY, RotateZ);
         while(WalKing == true)
         {
             anim.Play("WalkSlug1");
@@ -111,7 +118,11 @@ public class Player1 : MonoBehaviour
         Gizmos.DrawWireSphere(AttackPoint.position, attackRange);
     }
 
-    
+    void Dead()
+    {
+        anim.Play("DeadSlug1");
+    }
+
     
 }
 

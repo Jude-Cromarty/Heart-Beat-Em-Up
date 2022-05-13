@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Player2 : MonoBehaviour
 {
+    public Vector3 scaleChange,positionChange;
+    public GameObject Player;
     private int hits;
     public int maxHealth = 100;
     public int currentHealth;
@@ -12,8 +14,8 @@ public class Player2 : MonoBehaviour
     public float attackRange = 0.5f;
     public LayerMask enemyLayers;
     private bool WalKing;
-    public float moveSpeed;
-    public float JumpForce;
+    public float moveSpeed, RotateX, RotateY, RotateZ;
+    public float JumpForce,knockback;
     private Animator anim;
     public HealthBar healthBar;
     public Player1 player1;
@@ -93,6 +95,9 @@ public class Player2 : MonoBehaviour
 
     IEnumerator Walking()
     {
+        Player.transform.localScale += scaleChange;
+        Player.transform.position += positionChange;
+        transform.localRotation = Quaternion.Euler(RotateX, RotateY, RotateZ);
 
         while(WalKing == true)
         {
@@ -103,6 +108,7 @@ public class Player2 : MonoBehaviour
 
    public void TakeDamage(int damage)
     {
+        GetComponent<Rigidbody>().AddRelativeForce(-Vector3.right * knockback);
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
