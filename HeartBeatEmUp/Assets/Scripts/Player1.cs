@@ -90,7 +90,7 @@ public class Player1 : MonoBehaviour
         Collider[] hitEnemies = Physics.OverlapSphere(AttackPoint.position, attackRange, enemyLayers2);
         foreach (Collider enemy in hitEnemies)
         {
-            player2.TakeDamage(10);
+            player2.TakeDamage(3);
         }
     }
 
@@ -141,7 +141,7 @@ public class Player1 : MonoBehaviour
         m_Rigidbody.constraints = RigidbodyConstraints.None;
         Collider[] hitEnemies = Physics.OverlapSphere(AttackPoint1.position, attackRange1, enemyLayers2);
         foreach (Collider enemy in hitEnemies)
-        {player2.TakeDamage(30);}
+        {player2.TakeDamage(10);}
     }
 
     
