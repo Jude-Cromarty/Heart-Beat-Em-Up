@@ -147,7 +147,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 34535463}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.903, y: 0.061, z: 0}
+  m_LocalPosition: {x: -0.087, y: 0.061, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 325714423}
@@ -376,7 +376,7 @@ GameObject:
   - component: {fileID: 325714422}
   m_Layer: 3
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -512,8 +512,10 @@ MonoBehaviour:
   positionChange: {x: 0, y: 0, z: 0}
   positionChange1: {x: 0, y: 2, z: 0}
   Player: {fileID: 325714419}
+  floatingPoints: {fileID: 1666958910394265950, guid: dd116670de3e14745b9a58ba6743d4df, type: 3}
   maxHealth: 100
   currentHealth: 0
+  Damage: 0
   Left: 97
   Right: 100
   JumpButton: 119
@@ -521,7 +523,7 @@ MonoBehaviour:
   SpecialKey: 113
   AttackPoint: {fileID: 34535464}
   AttackPoint1: {fileID: 957587429}
-  attackRange: 0.14
+  attackRange: 2.47
   attackRange1: 3
   enemyLayers2:
     serializedVersion: 2
@@ -532,6 +534,7 @@ MonoBehaviour:
   RotateZ: 0
   JumpForce: 5
   knockback: 500
+  AttackDelay: 0.3
   healthBar: {fileID: 1864496816}
   player2: {fileID: 1428467859}
 --- !u!1 &380689691
@@ -621,7 +624,7 @@ GameObject:
   - component: {fileID: 496672927}
   - component: {fileID: 496672926}
   - component: {fileID: 496672925}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -893,7 +896,7 @@ GameObject:
   - component: {fileID: 541766743}
   - component: {fileID: 541766742}
   - component: {fileID: 541766741}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1335,7 +1338,7 @@ GameObject:
   - component: {fileID: 977000659}
   - component: {fileID: 977000658}
   - component: {fileID: 977000657}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1595,7 +1598,7 @@ GameObject:
   - component: {fileID: 1428467861}
   m_Layer: 6
   m_Name: Player 2
-  m_TagString: Untagged
+  m_TagString: Player2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1615,8 +1618,10 @@ MonoBehaviour:
   scaleChange: {x: 0, y: 0, z: 0}
   positionChange: {x: 0, y: 0, z: 0}
   Player: {fileID: 1428467858}
+  floatingPoints: {fileID: 4846808460376907426, guid: 53d85a8a1c37c6343bb7e811a4b138d7, type: 3}
   maxHealth: 100
   currentHealth: 0
+  Damage: 0
   Left: 106
   Right: 108
   JumpButton: 105
@@ -1906,7 +1911,7 @@ GameObject:
   - component: {fileID: 1574174484}
   - component: {fileID: 1574174483}
   - component: {fileID: 1574174482}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

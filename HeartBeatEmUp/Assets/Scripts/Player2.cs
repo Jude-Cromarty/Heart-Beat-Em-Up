@@ -6,9 +6,10 @@ public class Player2 : MonoBehaviour
 {
     public Vector3 scaleChange,positionChange;
     public GameObject Player;
+    public GameObject floatingPoints;
     private int hits;
     public int maxHealth = 100;
-    public int currentHealth;
+    public int currentHealth, Damage;
     public KeyCode Left,Right,JumpButton,AttackKey,SpecialKey;
     public Transform AttackPoint;
     public float attackRange = 0.5f;
@@ -30,6 +31,10 @@ public class Player2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+            if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("Snow_Attack"))//spam prevention
+                    {
+                    return;
+                    }
         if(currentHealth <= 0)
         {
             Dead();
@@ -111,8 +116,10 @@ public class Player2 : MonoBehaviour
 
    public void TakeDamage(int damage)
     {
+        Damage = damage;
         anim.Play("Snow_Stunned");
         GetComponent<Rigidbody>().AddRelativeForce(-Vector3.right * knockback);
+        Instantiate(floatingPoints, transform.position, Quaternion.identity);//spawns damage
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }

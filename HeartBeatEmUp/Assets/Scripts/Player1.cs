@@ -7,9 +7,10 @@ public class Player1 : MonoBehaviour
      Rigidbody m_Rigidbody;
     public Vector3 scaleChange,positionChange,positionChange1;
     public GameObject Player;
+    public GameObject floatingPoints;
     private int hits;
     public int maxHealth = 100;
-    public int currentHealth;
+    public int currentHealth, Damage;
     public KeyCode Left,Right,JumpButton,AttackKey,SpecialKey;
     public Transform AttackPoint,AttackPoint1;
     public float attackRange = 0.5f;
@@ -17,10 +18,11 @@ public class Player1 : MonoBehaviour
     public LayerMask enemyLayers2;
     private bool WalKing;
     public float moveSpeed, RotateX, RotateY, RotateZ;
-    public float JumpForce,knockback;
+    public float JumpForce,knockback, AttackDelay;
     private Animator anim;
     public HealthBar healthBar;
     public Player2 player2;
+    int AttackDamage =3;
     // Start is called before the first frame update
 
     void Start()
@@ -29,7 +31,6 @@ public class Player1 : MonoBehaviour
         anim = GetComponent<Animator>();
         currentHealth = maxHealth;
         healthBar.SetMaxHealth(maxHealth);
-
     }
 
     //if spacebar is pressed swap controls,invert controls etc..(depends on MUSIC - makes it viable for jam)
@@ -37,6 +38,12 @@ public class Player1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        if (this.anim.GetCurrentAnimatorStateInfo(0).IsName("CloseRangeSlug1"))
+                    {
+                    return;
+                    }
+
         if(currentHealth <= 0)
         {
             Dead();
@@ -44,7 +51,7 @@ public class Player1 : MonoBehaviour
          Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0.0f);//, Input.GetAxis("Vertical"));
         
             transform.position += movement * Time.deltaTime * moveSpeed;
-        
+
         if (Input.GetKeyDown(JumpButton))
         {
     
@@ -61,7 +68,8 @@ public class Player1 : MonoBehaviour
         }
         if(Input.GetKeyDown(AttackKey))
         {
-            Swish();
+
+            StartCoroutine(Swish());
 
         }
         if(Input.GetKeyDown(SpecialKey))
@@ -70,11 +78,12 @@ public class Player1 : MonoBehaviour
         }
         Debug.Log(hits);
         
-        
     }
+    
 
     void Walk()
     {
+
         anim.Play("WalkSlug1");
     }
 
@@ -84,13 +93,14 @@ public class Player1 : MonoBehaviour
         gameObject.GetComponent<Rigidbody>().AddForce(new Vector2(0f, JumpForce), ForceMode.Impulse);
     }
 
-    void Swish()
+    IEnumerator Swish()
     {
         anim.SetTrigger("Attack");
+        yield return new WaitForSeconds(AttackDelay);
         Collider[] hitEnemies = Physics.OverlapSphere(AttackPoint.position, attackRange, enemyLayers2);
         foreach (Collider enemy in hitEnemies)
         {
-            player2.TakeDamage(3);
+            player2.TakeDamage(AttackDamage);
         }
     }
 
@@ -113,8 +123,10 @@ public class Player1 : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        Damage = damage;
         anim.Play("KnockbackSlug1");
         GetComponent<Rigidbody>().AddRelativeForce(-Vector3.right * knockback);
+        Instantiate(floatingPoints, transform.position, Quaternion.identity);//spawns damage
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
@@ -144,6 +156,11 @@ public class Player1 : MonoBehaviour
         {player2.TakeDamage(10);}
     }
 
-    
+       void OnCollisionEnter (Collision targetObj) {
+if(targetObj.gameObject.tag == "Trap")
+        {
+            Debug.Log("TakenCollider");
+        }
+    }
 }
 
