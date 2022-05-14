@@ -2,7 +2,7 @@
 
 Currently still in development.
 
-Controls: QWASDE for player 1,  IJKLO for player 2.
+Controls: QWASDE for player 1,  IJKLO for player 2.(Development Only) V to start & B to stop level rotation.
 
 If you feel like there should be a feature either tell me or feel free to add it yourself. 
 
