@@ -1,10 +1,10 @@
 # Heart-Beat-Em-Up
 
-                                                ***Currently still in development.***
+                                                ***Good to Go***
 
-                   Controls: WASDE for player 1,  IJKLO for player 2.(Development Only) V to start & B to stop level rotation.
+                   Controls: WASDE for player 1,  IJKLO for player 2.
 
-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-Yeah, it's almost complete. Nothing specific so if you find something you want to fix or add then go ahead._-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-Yeah, it's complete. Nothing specific so if you find something you want to fix or add then go ahead._-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
                     To sync this, make a clone via Github desktop (need url) and work from the cloned location.
                                      Remember to pull then commit when you make changes. 

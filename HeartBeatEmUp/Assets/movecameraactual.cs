@@ -16,9 +16,7 @@ void Start(){StartCoroutine(move());}
  {
     yield return new WaitForSeconds(delay);
     speedY += actualspeed;
-    yield return new WaitForSeconds(10);
-    speedY += nextactualspeed;
     yield return new WaitForSeconds(waitTime);
-    speedY = 0.001f;
+    speedY = 0;
  }
 }
