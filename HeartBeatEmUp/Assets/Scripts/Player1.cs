@@ -22,7 +22,7 @@ public class Player1 : MonoBehaviour
     private Animator anim;
     public HealthBar healthBar;
     public Player2 player2;
-    int AttackDamage =3;
+    int AttackDamage =5;
     // Start is called before the first frame update
 
     void Start()

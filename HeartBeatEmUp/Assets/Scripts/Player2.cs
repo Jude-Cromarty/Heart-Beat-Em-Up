@@ -87,7 +87,7 @@ public class Player2 : MonoBehaviour
         Collider[] hitEnemies = Physics.OverlapSphere(AttackPoint.position, attackRange, enemyLayers);
         foreach (Collider enemy in hitEnemies)
         {
-            player1.TakeDamage(3);
+            player1.TakeDamage(7);
         }
     }
 
