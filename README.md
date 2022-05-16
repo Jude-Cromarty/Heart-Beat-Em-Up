@@ -1,10 +1,10 @@
 # Heart-Beat-Em-Up
 
-                                                ***Good to Go***
+                                                    ***Good to Go***
 
-                   Controls: WASDE for player 1,  IJKLO for player 2.
+                               Controls: WASDE for player 1,  IJKLO for player 2.
 
-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-Yeah, it's complete. Nothing specific so if you find something you want to fix or add then go ahead._-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
 
                     To sync this, make a clone via Github desktop (need url) and work from the cloned location.
                                      Remember to pull then commit when you make changes. 
